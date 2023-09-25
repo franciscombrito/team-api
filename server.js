@@ -215,6 +215,7 @@ const projects = [
     name: "Atlas Copco",
     techStack: ["HTML", "CSS", "Typescript", "Angular", "NgRx", "Rxjs"],
     frontendTeam: ["Ivo Pereira", "Francisco Brito"],
+    image: "https://team-api-508w.onrender.com/image/atlas-copco-logo.svg",
   },
 ];
 
