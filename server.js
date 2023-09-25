@@ -8,6 +8,7 @@ app.use(cors());
 const team = [
   {
     name: "Francisco Brito",
+    image: "https://team-api-508w.onrender.com/image/francisco.jpg",
     projects: [
       {
         name: "Atlas Copco",
@@ -17,6 +18,7 @@ const team = [
   },
   {
     name: "Ivo Pereira",
+    image: "https://team-api-508w.onrender.com/image/ivo.jpg",
     projects: [
       {
         name: "Atlas Copco",
@@ -26,6 +28,7 @@ const team = [
   },
   {
     name: "Fandy Tsui",
+    image: "https://team-api-508w.onrender.com/image/fandy.png",
     projects: [
       {
         name: "My Vanderlande",
@@ -39,6 +42,7 @@ const team = [
   },
   {
     name: "Paulo Simões",
+    image: "https://team-api-508w.onrender.com/image/paulo.png",
     projects: [
       {
         name: "My Vanderlande",
@@ -52,6 +56,7 @@ const team = [
   },
   {
     name: "Jorge Rocha",
+    image: "https://team-api-508w.onrender.com/image/Jorge.jpg",
     projects: [
       {
         name: "GEAR",
@@ -65,6 +70,7 @@ const team = [
   },
   {
     name: "Martijn Prikkel",
+    image: "https://team-api-508w.onrender.com/image/martijn.png",
     projects: [
       {
         name: "GEAR",
@@ -78,6 +84,7 @@ const team = [
   },
   {
     name: "Sergiu Cebotaru",
+    image: "https://team-api-508w.onrender.com/image/sergiu.jpg",
     projects: [
       {
         name: "GEAR",
@@ -87,6 +94,7 @@ const team = [
   },
   {
     name: "Luca di Donato",
+    image: "https://team-api-508w.onrender.com/image/luca.jpg",
     projects: [
       {
         name: "OPLZ",
@@ -96,6 +104,7 @@ const team = [
   },
   {
     name: "Atidivya Patra",
+    image: "https://team-api-508w.onrender.com/image/ati.jpg",
     projects: [
       {
         name: "Mazars",
@@ -105,6 +114,7 @@ const team = [
   },
   {
     name: "Catarina Viegas",
+    image: "https://team-api-508w.onrender.com/image/catarina.jpg",
     projects: [
       {
         name: "EduMS",
@@ -114,6 +124,7 @@ const team = [
   },
   {
     name: "Sara Campos",
+    image: "https://team-api-508w.onrender.com/image/sara.jpg",
     projects: [
       {
         name: "EduMS",
@@ -123,6 +134,7 @@ const team = [
   },
   {
     name: "Bas Ariaanz",
+    image: "https://team-api-508w.onrender.com/image/bas-a.png",
     projects: [
       {
         name: "Rensa Family",
@@ -132,6 +144,7 @@ const team = [
   },
   {
     name: "Francisco Lourenço",
+    image: "https://team-api-508w.onrender.com/image/Francisco2.png",
     projects: [
       {
         name: "Rensa Family",
@@ -141,6 +154,7 @@ const team = [
   },
   {
     name: "César Sá",
+    image: "https://team-api-508w.onrender.com/image/cesar.png",
     projects: [
       {
         name: "Rijk Zwaan",
@@ -154,6 +168,7 @@ const team = [
   },
   {
     name: "Rita Neves",
+    image: "https://team-api-508w.onrender.com/image/rita.jpg",
     projects: [
       {
         name: "Rijk Zwaan",
@@ -163,6 +178,7 @@ const team = [
   },
   {
     name: "Tiago Lopes",
+    image: "https://team-api-508w.onrender.com/image/TiagoLopes2.jpg",
     projects: [
       {
         name: "Specsavers",
@@ -172,6 +188,7 @@ const team = [
   },
   {
     name: "Tiago Viana",
+    image: "https://team-api-508w.onrender.com/image/TiagoViana.jpg",
     projects: [
       {
         name: "Specsavers",
@@ -181,6 +198,7 @@ const team = [
   },
   {
     name: "Yasmin Habayeb",
+    image: "https://team-api-508w.onrender.com/image/yasmin.jpg",
     projects: [
       {
         name: "NCOI",
@@ -197,6 +215,23 @@ const projects = [
     frontendTeam: ["Ivo Pereira", "Francisco Brito"],
   },
 ];
+
+// Serve static files from the 'assets' directory
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+
+// Define a route to serve images dynamically
+app.get("/image/:filename", (req, res) => {
+  const filename = req.params.filename;
+  const imagePath = path.join(__dirname, "assets", filename);
+
+  // Check if the requested file exists
+  if (!fs.existsSync(imagePath)) {
+    return res.status(404).send("Image not found");
+  }
+
+  // Serve the requested image
+  res.sendFile(imagePath);
+});
 
 app.get("/team", (req, res) => {
   res.json(team);
