@@ -217,6 +217,12 @@ const projects = [
     frontendTeam: ["Ivo Pereira", "Francisco Brito"],
     image: "https://team-api-508w.onrender.com/image/atlas-copco-logo.svg",
   },
+  {
+    name: "Atlas Copco",
+    techStack: ["HTML", "CSS", "Typescript", "Angular", "NgRx", "Rxjs"],
+    frontendTeam: ["César Sá", "Rita Neves"],
+    image: "https://team-api-508w.onrender.com/image/rz.jpg",
+  },
 ];
 
 // Serve static files from the 'assets' directory
