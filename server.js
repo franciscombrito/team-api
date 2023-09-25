@@ -221,7 +221,7 @@ const projects = [
     name: "Rijk Zwaan",
     techStack: ["HTML", "CSS", "Typescript", "Angular", "NgRx", "Rxjs"],
     frontendTeam: ["César Sá", "Rita Neves"],
-    image: "https://team-api-508w.onrender.com/image/rz.jpg",
+    image: "https://team-api-508w.onrender.com/image/rz.png",
   },
 ];
 
