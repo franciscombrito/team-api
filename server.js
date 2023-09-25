@@ -96,7 +96,7 @@ const team = [
   },
   {
     name: "Luca di Donato",
-    image: "https://team-api-508w.onrender.com/image/luca.jpg",
+    image: "https://team-api-508w.onrender.com/image/luca.png",
     projects: [
       {
         name: "OPLZ",
@@ -106,7 +106,7 @@ const team = [
   },
   {
     name: "Atidivya Patra",
-    image: "https://team-api-508w.onrender.com/image/ati.jpg",
+    image: "https://team-api-508w.onrender.com/image/Ati.jpg",
     projects: [
       {
         name: "Mazars",
